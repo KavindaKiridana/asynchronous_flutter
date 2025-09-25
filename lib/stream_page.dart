@@ -18,14 +18,14 @@ class _StreamPageState extends State<StreamPage> {
       var url = Uri.https(
         'jsonplaceholder.typicode.com',
         '/todos/$x',
-      ); // ✅ dynamic id
+      ); //  dynamic id
       var response = await http.get(url);
 
       if (response.statusCode == 200) {
         var jsonResponse =
             convert.jsonDecode(response.body) as Map<String, dynamic>;
         var title = jsonResponse['title'];
-        _controller.sink.add(title.toString()); // ✅ add title
+        _controller.sink.add(title.toString()); //  add title
       } else {
         _controller.sink.add('Error: ${response.statusCode}');
       }
@@ -43,7 +43,7 @@ class _StreamPageState extends State<StreamPage> {
 
   @override
   void dispose() {
-    _controller.close(); // ✅ important
+    _controller.close(); //  important
     super.dispose();
   }
 
