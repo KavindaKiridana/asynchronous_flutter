@@ -22,13 +22,13 @@ class _ColorsPageState extends State<ColorsPage> {
         '/todos/$x',
       ); //  dynamic id
       var response = await http.get(url);
-
+      int y = colorList.length - x;
       if (response.statusCode == 200) {
         var jsonResponse =
             convert.jsonDecode(response.body) as Map<String, dynamic>;
         var title = jsonResponse['title'];
         _controller.sink.add(
-          TitleColor(title, colorList.elementAt(x)),
+          TitleColor(title, colorList.elementAt(x), colorList.elementAt(y)),
         ); //  add title
       } else {
         // _controller.sink.add('Error: ${response.statusCode}');
@@ -65,8 +65,19 @@ class _ColorsPageState extends State<ColorsPage> {
         }
         if (snapshot.hasData) {
           final data = snapshot.data!; //  safely unwrap TitleColor
-          return Center(
-            child: Text(data.title, style: TextStyle(color: data.color)),
+          return Container(
+            color: data.backcolor,
+            child: Center(
+              child: Text(
+                data.title,
+                style: TextStyle(
+                  color: data.color,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           );
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
