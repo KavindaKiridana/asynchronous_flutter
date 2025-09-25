@@ -1,9 +1,15 @@
 import 'package:asynchronous_flutter/asynchronous_page.dart';
 import 'package:asynchronous_flutter/form_page.dart';
 import 'package:asynchronous_flutter/stream_page.dart';
+import 'package:asynchronous_flutter/colors_page.dart';
 import 'package:flutter/material.dart';
 
-List<Widget> pages = [FormPage(), AsynchronousPage(), StreamPage()];
+List<Widget> pages = [
+  FormPage(),
+  AsynchronousPage(),
+  StreamPage(),
+  ColorsPage(),
+];
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({super.key});
@@ -21,7 +27,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         title: Text('Form - Tutorial 14'),
         backgroundColor: Colors.blueAccent,
       ),
-      body: pages.elementAt(pageNo),
+      body: Container(child: pages.elementAt(pageNo)),
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.note), label: 'form'),
@@ -30,6 +36,7 @@ class _WidgetTreeState extends State<WidgetTree> {
             label: 'asynchronous',
           ),
           NavigationDestination(icon: Icon(Icons.stream), label: 'stream'),
+          NavigationDestination(icon: Icon(Icons.colorize), label: 'colors'),
         ],
         onDestinationSelected: (value) {
           setState(() {
