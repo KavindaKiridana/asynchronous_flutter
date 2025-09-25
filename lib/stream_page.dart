@@ -76,26 +76,3 @@ class _StreamPageState extends State<StreamPage> {
     );
   }
 }
-
-List<Color> colorList = [
-  Colors.red,
-  Colors.green,
-  Colors.blue,
-  Colors.yellow,
-  Colors.orange,
-  Colors.purple,
-  Colors.pink,
-  Colors.brown,
-  Colors.cyan,
-  Colors.indigo,
-  Colors.teal,
-  Colors.lime,
-  Colors.amber,
-  Colors.grey,
-  Colors.deepOrange,
-  Colors.deepPurple,
-  Colors.lightBlue,
-  Colors.lightGreen,
-  Colors.blueGrey,
-  Colors.black,
-];
