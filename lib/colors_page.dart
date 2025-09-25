@@ -99,4 +99,11 @@ List<Color> colorList = [
   Colors.lightGreen,
   Colors.blueGrey,
   Colors.black,
+  Colors.grey,
+  Colors.deepOrange,
+  Colors.deepPurple,
+  Colors.lightBlue,
+  Colors.lightGreen,
+  Colors.blueGrey,
+  Colors.black,
 ];
