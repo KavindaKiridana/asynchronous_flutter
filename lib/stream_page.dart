@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert' as convert;
+import 'package:asynchronous_flutter/title_color.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
@@ -25,13 +26,17 @@ class _StreamPageState extends State<StreamPage> {
         var jsonResponse =
             convert.jsonDecode(response.body) as Map<String, dynamic>;
         var title = jsonResponse['title'];
-        _controller.sink.add(title.toString()); //  add title
+        _controller.sink.add(title); //  add title
       } else {
         _controller.sink.add('Error: ${response.statusCode}');
       }
 
       // small delay so requests don’t all fire at once
       await Future.delayed(Duration(seconds: 1));
+
+      if (x == 20) {
+        x = 1;
+      }
     }
   }
 
@@ -71,3 +76,26 @@ class _StreamPageState extends State<StreamPage> {
     );
   }
 }
+
+List<Color> colorList = [
+  Colors.red,
+  Colors.green,
+  Colors.blue,
+  Colors.yellow,
+  Colors.orange,
+  Colors.purple,
+  Colors.pink,
+  Colors.brown,
+  Colors.cyan,
+  Colors.indigo,
+  Colors.teal,
+  Colors.lime,
+  Colors.amber,
+  Colors.grey,
+  Colors.deepOrange,
+  Colors.deepPurple,
+  Colors.lightBlue,
+  Colors.lightGreen,
+  Colors.blueGrey,
+  Colors.black,
+];
